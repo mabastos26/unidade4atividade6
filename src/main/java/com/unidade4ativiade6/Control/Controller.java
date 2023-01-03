@@ -1,10 +1,12 @@
-package com.unidade4ativiade6.Control;
+package com.unidade4ativiade6.control;
 
 import java.util.concurrent.atomic.AtomicLong;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.unidade4ativiade6.model.Cidadao;
 
 @RestController
 public class Controller {
@@ -13,7 +15,7 @@ public class Controller {
 	private final AtomicLong counter = new AtomicLong();
 
 	@GetMapping("/cidadaos")
-	public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
+	public Cidadao getCidadaos(@RequestParam(value = "name", defaultValue = "World") String name) {
 		return new Greeting(counter.incrementAndGet(), String.format(template, name));
 	}
 }
